@@ -218,23 +218,10 @@ export const experience: Role[] = [
       'Cut turnaround from 1 hour to 7 minutes — an 8.6× speedup across 1,000+ verification runs',
       'Containerised 5 services with Docker and orchestrated tasks through Celery + Redis across 20 concurrent workers, adding Playwright slot management, worker recycling and autoscaling',
       'Reduced average per-run time 25–50% (400s → 200–300s) through LLM-response caching, circuit breakers, HTTP connection pooling, retry tuning and error-page detection',
-      'Built or modified 20+ REST APIs across verification and data-processing workflows, persisting job and result state to PostgreSQL and candidate documents to AWS S3',
+      'Built and modified 20+ REST APIs across verification and data-processing workflows, persisting job and result state to PostgreSQL and candidate documents to AWS S3',
       'Developed a 13-layer ERP data-preparation and forensic-analytics pipeline — 14 business modules, 163+ automated tests — flagging duplicate PAN/GSTIN records, PO splitting, Benford’s Law violations and segregation-of-duties conflicts across 120K+ rows',
     ],
     stack: ['Python', 'asyncio', 'Playwright', 'browser-use', 'Celery', 'Redis', 'PostgreSQL', 'AWS S3', 'Docker'],
-  },
-  {
-    company: 'Vardhaman College of Engineering',
-    title: 'B.Tech, Computer Science & Engineering — Data Science',
-    period: 'August 2023 — 2026',
-    location: 'Hyderabad, Telangana',
-    summary:
-      'Specialisation in Data Science, with coursework across machine learning, deep learning, database systems and software engineering.',
-    points: [
-      'CGPA 9.46 / 10',
-      'Core areas: machine learning, deep learning, data analysis, database management systems',
-    ],
-    stack: ['Python', 'SQL', 'Java', 'JavaScript', 'ML / DL', 'DBMS'],
   },
 ]
 
