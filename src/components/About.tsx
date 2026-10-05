@@ -1,11 +1,10 @@
-import { codingStats, profile } from '../data/portfolio'
+import { profile, skills } from '../data/portfolio'
 import { SectionHeader } from './ui/SectionHeader'
 import { Reveal } from './ui/Reveal'
-import { Stat } from './ui/Stat'
 
 export function About() {
   return (
-    <section id="about" className="relative z-10 py-24 md:py-32">
+    <section id="about" className="relative z-10 pb-24 md:pb-32">
       <div className="shell">
         <SectionHeader index="01" label="About" title="Who is writing this." />
 
@@ -32,10 +31,10 @@ export function About() {
               <dl className="grid grid-cols-[76px_minmax(0,1fr)] items-baseline gap-x-4 gap-y-5">
                 {[
                   ['Based in', profile.location],
-                  ['Doing', profile.role],
-                  ['Writing', 'Mostly TypeScript, some Go'],
-                  ['Reading', 'Distributed systems papers'],
-                  ['Offline', 'Problem sets and long walks'],
+                  ['Building', 'AI & Software Systems'],
+                  ['Working with', 'Python, AI/ML, APIs & Automation'],
+                  ['Exploring','LLMs, Computer Vision & Distributed Workloads'],
+                  ['Offline', 'Problem sets, side projects and long walks'],
                 ].map(([k, v]) => (
                   <div key={k} className="contents">
                     <dt className="eyebrow pt-0.5 text-stone">{k}</dt>
@@ -44,12 +43,33 @@ export function About() {
                 ))}
               </dl>
             </Reveal>
-
-            <div className="mt-12 grid grid-cols-2 gap-8 border-t border-slate pt-8">
-              <Stat value={codingStats.headline.totalSolved} label="Solved" size="md" />
-              <Stat value={new Date().getFullYear() - 2020} label="Years shipping" size="md" />
-            </div>
           </aside>
+        </div>
+
+        {/* Technical skills — grouped, quiet, no icons. */}
+        <div className="mt-16 border-t border-slate pt-12 md:mt-20">
+          <div className="flex items-baseline gap-4">
+            <span className="eyebrow text-ash">Technical skills</span>
+            <span className="h-px flex-1 bg-silver/12" />
+          </div>
+
+          <div className="mt-8 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
+            {skills.map((group) => (
+              <div key={group.label}>
+                <div className="eyebrow text-stone">{group.label}</div>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {group.items.map((item) => (
+                    <span
+                      key={item}
+                      className="rounded-full border border-silver/12 px-3 py-1 text-[13px] tracking-[0.015em] text-ash"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

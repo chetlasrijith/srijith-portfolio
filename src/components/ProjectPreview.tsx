@@ -9,7 +9,7 @@ export function ProjectPreview({ variant, name }: { variant: Project['preview'];
   const hair = 'stroke-silver/12'
 
   return (
-    <div className="relative aspect-[16/11] w-full overflow-hidden rounded-xl bg-graphite">
+    <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl bg-graphite">
       {/* Window chrome — 1px dots, no colour. */}
       <div className="flex items-center gap-2 border-b border-silver/10 px-5 py-4">
         <span className="h-1.5 w-1.5 rounded-full bg-slate" />

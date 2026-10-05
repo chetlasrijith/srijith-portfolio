@@ -11,41 +11,44 @@ export const profile = {
   name: 'Srijith Chetla',
   /** The 96px sculptural hero block. Keep it 2–3 words. */
   headline: ['Srijith', 'Chetla'],
-  role: 'Software Engineer',
+  role: 'AI / ML Engineer',
   /** Rotates in the hero terminal line. */
   roles: [
-    'Software Engineer',
-    'Backend & Distributed Systems',
-    'TypeScript · Go · Rust',
-    'Problem Solver',
+    'AI / ML Engineer',
+    'LLM Automation & Computer Vision',
+    'Python · TensorFlow · PyTorch',
+    'Computer Science · Data Science',
   ],
-  location: 'Hyderabad, India',
+  location: 'Hyderabad, Telangana',
   timezone: 'Asia/Kolkata',
-  email: 'srijithchetla@example.com',
-  phone: '+91 98765 43210',
-  resumeUrl: '/resume.pdf',
+  email: 'chetlasrijith@gmail.com',
+  phone: '+91 70324 40444',
+  resumeUrl: '/srijith-chetla-resume.pdf',
   resumeFileName: 'Srijith-Chetla-Resume.pdf',
   availability: 'Open to new roles — 2026',
   socials: [
-    { label: 'GitHub', handle: '@srijithchetla', url: 'https://github.com' },
-    { label: 'LinkedIn', handle: 'in/srijithchetla', url: 'https://linkedin.com' },
-    { label: 'LeetCode', handle: '@srijithchetla', url: 'https://leetcode.com' },
-    { label: 'Codeforces', handle: '@chetla', url: 'https://codeforces.com' },
+    { label: 'GitHub', handle: '@chetlasrijith', url: 'https://github.com/chetlasrijith' },
+    { label: 'LinkedIn', handle: 'in/srijithchetla', url: 'https://linkedin.com/in/srijithchetla' },
+    { label: 'LeetCode', handle: '@thechetla', url: 'https://leetcode.com/u/thechetla/' },
   ],
   about: [
-    'I build systems that stay calm under load — schedulers, streaming pipelines and developer tooling that other engineers get to forget about.',
-    'Most of my work lives at the seam between a typed interface and the distributed machinery behind it. I care about the shape of an API more than the number of lines it takes to ship it, and about the six months after launch more than the launch itself.',
-    'Outside of work I keep a long-running problem solving streak, write about the things that broke, and rebuild my own tools far more often than is strictly healthy.',
+    'I build intelligent systems that turn messy, manual processes into things that can run on their own — from browser automation and data pipelines to computer vision systems that have to work outside a notebook.',
+    'Most of my work sits somewhere between machine learning and engineering. I like taking models out of isolation and giving them the infrastructure they need to be useful: concurrency, APIs, caching, fault tolerance, observability, and the occasional battle with a system that was never designed to be automated.',
+    'I’m particularly drawn to problems where the interesting part isn’t getting something to work once, but making it fast, reliable, and resilient enough that other people can stop thinking about it. Outside of that, I spend an unreasonable amount of time solving problems, experimenting with new tools, and building things simply because I want to understand how they work. That curiosity has also taken me to the ACM-ICPC Asia Amritapuri Regionals.',
   ],
   /** The quiet authority band. Grayscale, no hover states. */
-  marquee: [
-    'PROBLEMS SOLVED',
-    'CURRENT STREAK',
-    'LEETCODE RATING',
-    'SHIPPED PROJECTS',
-    'CONTRIBUTIONS',
-    'OPEN TO WORK',
-  ],
+marquee: [
+  "AI Engineering",
+  "Intelligent Automation",
+  "Distributed Systems",
+  "Computer Vision",
+  "LLM Systems",
+  "Backend Engineering",
+  "Performance Optimization",
+  "Competitive Programming",
+  "ACM-ICPC Regionalist",
+  "Builder at Heart",
+],
 }
 
 export type Project = {
@@ -85,7 +88,7 @@ export const projects: Project[] = [
       'Virtualised canvas holds 60fps above 12,000 shapes',
     ],
     liveUrl: 'https://rift.example.com',
-    repoUrl: 'https://github.com/srijithchetla/rift',
+    repoUrl: 'https://github.com/chetlasrijith/rift',
     featured: true,
     preview: 'canvas',
     metrics: [
@@ -110,7 +113,7 @@ export const projects: Project[] = [
       'Query builder that compiles straight to SQL, no dashboard YAML',
     ],
     liveUrl: 'https://pulse.example.com',
-    repoUrl: 'https://github.com/srijithchetla/pulse',
+    repoUrl: 'https://github.com/chetlasrijith/pulse',
     featured: true,
     preview: 'streams',
     metrics: [
@@ -135,7 +138,7 @@ export const projects: Project[] = [
       'Zero-downtime deploys with in-flight job draining',
     ],
     liveUrl: 'https://kestrel.example.com',
-    repoUrl: 'https://github.com/srijithchetla/kestrel',
+    repoUrl: 'https://github.com/chetlasrijith/kestrel',
     preview: 'queue',
     metrics: [
       { label: 'Jobs / day', value: '2.4M' },
@@ -159,7 +162,7 @@ export const projects: Project[] = [
       'Adopted by three teams and never asked to be removed',
     ],
     liveUrl: 'https://sift.example.com',
-    repoUrl: 'https://github.com/srijithchetla/sift',
+    repoUrl: 'https://github.com/chetlasrijith/sift',
     preview: 'terminal',
     metrics: [
       { label: 'Binary', value: '6.1MB' },
@@ -183,7 +186,7 @@ export const projects: Project[] = [
       'Export any shape as a printable STL',
     ],
     liveUrl: 'https://orbit.example.com',
-    repoUrl: 'https://github.com/srijithchetla/orbit',
+    repoUrl: 'https://github.com/chetlasrijith/orbit',
     preview: 'orbit',
     metrics: [
       { label: 'Fps', value: '120' },
@@ -205,45 +208,33 @@ export type Role = {
 
 export const experience: Role[] = [
   {
-    company: 'Meridian Systems',
-    title: 'Senior Software Engineer',
-    period: '2024 — Present',
-    location: 'Hyderabad',
+    company: 'Deloitte',
+    title: 'AI Intern',
+    period: 'June 2026 — Present',
+    location: 'Hyderabad, Telangana',
     summary:
-      'Own the scheduling and ingestion layer behind a real-time data product used by 40+ internal teams.',
+      'Engineer an LLM-driven browser automation platform that clears background verification across third-party HR portals without a person in the loop.',
     points: [
-      'Rewrote the job scheduler in Go, cutting p99 queue latency from 4.1s to 210ms',
-      'Led the migration off a self-managed Kafka cluster to a partition-per-tenant model',
-      'Mentor two engineers; run a weekly design review nobody is allowed to skip',
+      'Cut turnaround from 1 hour to 7 minutes — an 8.6× speedup across 1,000+ verification runs',
+      'Containerised 5 services with Docker and orchestrated tasks through Celery + Redis across 20 concurrent workers, adding Playwright slot management, worker recycling and autoscaling',
+      'Reduced average per-run time 25–50% (400s → 200–300s) through LLM-response caching, circuit breakers, HTTP connection pooling, retry tuning and error-page detection',
+      'Built or modified 20+ REST APIs across verification and data-processing workflows, persisting job and result state to PostgreSQL and candidate documents to AWS S3',
+      'Developed a 13-layer ERP data-preparation and forensic-analytics pipeline — 14 business modules, 163+ automated tests — flagging duplicate PAN/GSTIN records, PO splitting, Benford’s Law violations and segregation-of-duties conflicts across 120K+ rows',
     ],
-    stack: ['Go', 'TypeScript', 'Kafka', 'Postgres'],
+    stack: ['Python', 'asyncio', 'Playwright', 'browser-use', 'Celery', 'Redis', 'PostgreSQL', 'AWS S3', 'Docker'],
   },
   {
-    company: 'Corvus Labs',
-    title: 'Software Engineer',
-    period: '2022 — 2024',
-    location: 'Bengaluru',
+    company: 'Vardhaman College of Engineering',
+    title: 'B.Tech, Computer Science & Engineering — Data Science',
+    period: 'August 2023 — 2026',
+    location: 'Hyderabad, Telangana',
     summary:
-      'Built the developer-facing SDK and internal tooling for a payments platform.',
+      'Specialisation in Data Science, with coursework across machine learning, deep learning, database systems and software engineering.',
     points: [
-      'Shipped an idempotent payments SDK adopted by 90% of merchant integrations',
-      'Cut cold start 62% by replacing a reflection-based router with compiled handlers',
-      'Authored the incident playbook that halved mean time to recovery',
+      'CGPA 9.46 / 10',
+      'Core areas: machine learning, deep learning, data analysis, database management systems',
     ],
-    stack: ['TypeScript', 'Node', 'Redis', 'AWS'],
-  },
-  {
-    company: 'Independent',
-    title: 'Freelance Engineer',
-    period: '2020 — 2022',
-    location: 'Remote',
-    summary:
-      'Built data tooling and internal dashboards for small teams who had outgrown spreadsheets.',
-    points: [
-      'Delivered 11 projects end to end, from schema design to the deploy pipeline',
-      'Converted three clients from nightly CSV exports to live dashboards',
-    ],
-    stack: ['Python', 'React', 'Postgres'],
+    stack: ['Python', 'SQL', 'Java', 'JavaScript', 'ML / DL', 'DBMS'],
   },
 ]
 
@@ -257,91 +248,104 @@ export type Achievement = {
 export const achievements: Achievement[] = [
   {
     year: '2026',
-    title: 'Top 3% globally',
-    org: 'LeetCode Contest',
-    detail: 'Rated 1786 — 412 contests, best finish 41st of 18,400.',
+    title: 'LeetCode Knight', 
+    org: 'LeetCode',
+    detail: 'Achieved a contest rating of 1903.',
+  },
+  {
+    year: '2026',
+    title: 'Qualified for the regional round',
+    org: 'ACM-ICPC Asia Amritapuri',
+    detail: 'Advanced through qualification into the Asia Amritapuri regional.',
+  },
+  {
+    year: '2026',
+    title: 'Research paper accepted',
+    org: 'IEEE GCON 2026',
+    detail:
+      '“Underwater Plastic Waste Detection Using Deep Learning Techniques” — published in the IEEE GCON 2026 proceedings.',
   },
   {
     year: '2025',
-    title: 'Grandmaster, Codeforces',
-    org: 'Codeforces',
-    detail: 'Crossed 1500 rating and held it across three consecutive seasons.',
+    title: 'Amazon ML Summer School — top 5%',
+    org: 'Amazon',
+    detail: 'Selected among the top 5% of more than 60,000 applicants nationwide.',
   },
   {
     year: '2025',
-    title: 'Speaker, Config',
-    org: 'Config India',
-    detail: '"Backpressure for people who did not know they had one" — 400 attendees.',
-  },
-  {
-    year: '2024',
-    title: 'Best Engineer of the Year',
-    org: 'Corvus Labs',
-    detail: 'For the payments SDK rewrite and the incident playbook that followed.',
-  },
-  {
-    year: '2023',
-    title: 'Hackathon winner',
-    org: 'Smart India Hackathon',
-    detail: 'Built a real-time crop-disease triage app for low-connectivity farms.',
+    title: 'Winner — DataHack Hackathon',
+    org: 'Dept. of CSE (Data Science)',
+    detail:
+      'First place in the DataHack hackathon at Vardhaman College of Engineering.',
   },
 ]
 
-/* ── The ledger: every number the charts render ────────────────────────────── */
+export type Certification = {
+  title: string
+  issuer: string
+  year: string
+}
 
-export const codingStats = {
-  headline: {
-    totalSolved: 614,
-    currentStreak: 46,
-    longestStreak: 121,
-    totalContributions: 1284,
-    topPercent: 3,
+export const certifications: Certification[] = [
+  {
+    title: 'Claude Certified Architect – Professional (CCAR-P)',
+    issuer: 'Anthropic',
+    year: '2026',
   },
-
-  /** Difficulty ladder — the only indigo in the entire chart set sits on Hard. */
-  difficulty: {
-    easy: { label: 'Easy', count: 412, note: 'Mostly warm-ups. Some of them were not.' },
-    medium: { label: 'Medium', count: 168, note: 'Where the actual thinking happens.' },
-    hard: { label: 'Hard', count: 34, note: 'The ones worth writing down.' },
+  {
+    title: 'Machine Learning Specialization',
+    issuer: 'Stanford Online · Coursera',
+    year: '2025',
   },
-
-  /** Thin SVG arcs. Track is graphite, value is paper, the head gets one dot. */
-  ratings: [
-    { platform: 'LeetCode', handle: '@srijithchetla', rating: 1786, max: 2000, percentile: 'Top 3%' },
-    { platform: 'Codeforces', handle: '@chetla', rating: 1521, max: 2000, percentile: 'Master' },
-    { platform: 'CodeChef', handle: '@chetla', rating: 1874, max: 2100, percentile: 'Top 1.4%' },
-  ],
-
-  /** 12 months, problems solved per month. */
-  monthly: [
-    { month: 'Nov', leetcode: 34, codeforces: 12, other: 6 },
-    { month: 'Dec', leetcode: 41, codeforces: 18, other: 8 },
-    { month: 'Jan', leetcode: 29, codeforces: 22, other: 5 },
-    { month: 'Feb', leetcode: 38, codeforces: 15, other: 11 },
-    { month: 'Mar', leetcode: 47, codeforces: 26, other: 9 },
-    { month: 'Apr', leetcode: 33, codeforces: 19, other: 14 },
-    { month: 'May', leetcode: 52, codeforces: 31, other: 7 },
-    { month: 'Jun', leetcode: 44, codeforces: 24, other: 12 },
-    { month: 'Jul', leetcode: 58, codeforces: 28, other: 16 },
-    { month: 'Aug', leetcode: 49, codeforces: 34, other: 10 },
-    { month: 'Sep', leetcode: 63, codeforces: 29, other: 13 },
-    { month: 'Oct', leetcode: 55, codeforces: 36, other: 18 },
-  ],
-
-  languages: [
-    { name: 'TypeScript', pct: 42 },
-    { name: 'Python', pct: 24 },
-    { name: 'Go', pct: 14 },
-    { name: 'Rust', pct: 9 },
-    { name: 'SQL', pct: 7 },
-    { name: 'Other', pct: 4 },
-  ],
-
-  contribution: {
-    /** 53 weeks × 7 days, 0–4. Index 0 is the oldest day. */
-    weeks: 53,
-    days: 7,
-    /** The one day that gets the single accent colour. */
-    recordStreakIndex: 268,
+  {
+    title: 'Data Analysis with Python',
+    issuer: 'IBM · Coursera',
+    year: '2025',
   },
+]
+
+export type SkillGroup = {
+  label: string
+  items: string[]
+}
+
+export const skills: SkillGroup[] = [
+  { label: 'Languages', items: ['Python', 'SQL', 'Java', 'JavaScript'] },
+  {
+    label: 'ML / AI',
+    items: [
+      'Scikit-learn',
+      'TensorFlow',
+      'PyTorch',
+      'Keras',
+      'LangChain',
+      'LangGraph',
+      'LLMs',
+      'RAG',
+      'Agentic AI',
+    ],
+  },
+  {
+    label: 'Data & Databases',
+    items: ['NumPy', 'Pandas', 'PostgreSQL', 'MySQL', 'Redis'],
+  },
+  {
+    label: 'Backend & Frontend',
+    items: ['FastAPI', 'Django', 'Flask', 'React', 'REST APIs', 'Celery'],
+  },
+  {
+    label: 'Cloud & DevOps',
+    items: ['AWS (S3, EC2, IAM)', 'Docker', 'Git / GitHub', 'Postman'],
+  },
+  {
+    label: 'Automation',
+    items: ['Playwright', 'browser-use', 'Docling', 'vLLM', 'OCR'],
+  },
+]
+
+export const codeChefProfile = {
+  handle: 'thechetla',
+  url: 'https://www.codechef.com/users/thechetla',
+  rating: 1519,
+  checkedAt: 'Oct 5, 2026',
 }

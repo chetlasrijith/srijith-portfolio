@@ -18,8 +18,8 @@ export function SectionHeader({ index, label, title, note }: Props) {
   return (
     <header ref={ref} className="mb-12 md:mb-16">
       <div className="flex items-baseline gap-4">
-        <span className="eyebrow text-ash">{index}</span>
-        <span className="eyebrow">{label}</span>
+        <span className="eyebrow text-[15px] text-ash md:text-[16px]">{index}</span>
+        <span className="eyebrow text-[15px] text-ash md:text-[16px]">{label}</span>
         <span
           className="h-px flex-1 origin-left bg-silver/15"
           style={{

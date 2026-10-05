@@ -1,4 +1,4 @@
-import { profile, codingStats } from '../data/portfolio'
+import { profile } from '../data/portfolio'
 import { useLocalTime } from '../hooks/useLocalTime'
 import { Marquee } from './Marquee'
 
@@ -54,8 +54,7 @@ export function Footer() {
             © {year} {profile.name}
           </span>
           <span className="eyebrow text-stone">
-            {codingStats.headline.totalSolved} problems · {codingStats.headline.totalContributions}{' '}
-            commits · built by hand
+            AI / ML Engineer · {profile.location}
           </span>
         </div>
       </div>

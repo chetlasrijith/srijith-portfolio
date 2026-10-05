@@ -1,4 +1,4 @@
-import { achievements } from '../data/portfolio'
+import { achievements, certifications } from '../data/portfolio'
 import { SectionHeader } from './ui/SectionHeader'
 import { Reveal } from './ui/Reveal'
 
@@ -10,7 +10,7 @@ export function Achievements() {
           index="05"
           label="Recognition"
           title="A few receipts."
-          note="Competitions, talks and the occasional internal award. Listed in reverse order because that is how everyone lists them."
+          note="A publication, a regional, a national selection and a hackathon win. Listed newest first because that is how everyone lists them."
         />
 
         <div className="border-t border-slate">
@@ -34,6 +34,32 @@ export function Achievements() {
               </article>
             </Reveal>
           ))}
+        </div>
+
+        {/* Certifications — the quiet footnote to the list above. */}
+        <div className="mt-16">
+          <div className="flex items-baseline gap-4">
+            <span className="eyebrow text-ash">Certifications</span>
+            <span className="h-px flex-1 bg-silver/12" />
+          </div>
+
+          <div className="mt-6 grid gap-x-10 gap-y-4 sm:grid-cols-2">
+            {certifications.map((c) => (
+              <a
+                key={c.title}
+                href="https://www.coursera.org"
+                target="_blank"
+                rel="noreferrer noopener"
+                className="group flex items-baseline justify-between gap-6 border-b border-slate py-4 transition-colors duration-200 hover:border-silver/25"
+              >
+                <span>
+                  <span className="block text-[15px] text-paper">{c.title}</span>
+                  <span className="mt-1 block text-[13px] text-ash">{c.issuer}</span>
+                </span>
+                <span className="eyebrow shrink-0 text-stone">{c.year}</span>
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -1,7 +1,13 @@
 import { useInView } from '../../hooks/useInView'
-import { useCountUp } from '../../hooks/useCountUp'
 
-type Rating = { platform: string; handle: string; rating: number; max: number; percentile: string }
+type Rating = {
+  platform: string
+  handle: string
+  url?: string
+  rating: number
+  max: number
+  percentile: string
+}
 
 const R = 54
 const C = 2 * Math.PI * R
@@ -9,8 +15,6 @@ const C = 2 * Math.PI * R
 function Arc({ rating, delay }: { rating: Rating; delay: number }) {
   const { ref, inView } = useInView<HTMLDivElement>({ threshold: 0.3 })
   const pct = Math.min(1, rating.rating / rating.max)
-  const shown = useCountUp(rating.rating, inView, 1100)
-
   // Arc head position, so the travelling dot rides the end of the stroke.
   const angle = -Math.PI / 2 + pct * Math.PI * 2
   const hx = 60 + Math.cos(angle) * R
@@ -50,17 +54,30 @@ function Arc({ rating, delay }: { rating: Rating; delay: number }) {
         />
         <div className="absolute inset-0 flex flex-col items-center justify-center">
           <span className="text-[24px] leading-none tracking-[-0.24px] text-paper tabular-nums">
-            {shown}
+            {rating.rating.toLocaleString('en-US')}
           </span>
         </div>
       </div>
 
       <div className="mt-5 text-center">
         <div className="text-[15px] font-medium text-paper">{rating.platform}</div>
-        <div className="eyebrow mt-1.5 text-stone">{rating.handle}</div>
-        <div className="mt-3 inline-block rounded-full border border-silver/15 px-3 py-1">
-          <span className="eyebrow text-ash">{rating.percentile}</span>
-        </div>
+        {rating.url ? (
+          <a
+            href={rating.url}
+            target="_blank"
+            rel="noreferrer noopener"
+            className="eyebrow mt-1.5 inline-block text-stone transition-colors hover:text-paper"
+          >
+            {rating.handle}
+          </a>
+        ) : (
+          <div className="eyebrow mt-1.5 text-stone">{rating.handle}</div>
+        )}
+        {rating.percentile ? (
+          <div className="mt-3 inline-block rounded-full border border-silver/15 px-3 py-1">
+            <span className="eyebrow text-ash">{rating.percentile}</span>
+          </div>
+        ) : null}
       </div>
     </div>
   )
@@ -68,7 +85,7 @@ function Arc({ rating, delay }: { rating: Rating; delay: number }) {
 
 export function RatingArcs({ ratings }: { ratings: Rating[] }) {
   return (
-    <div className="grid grid-cols-1 gap-10 sm:grid-cols-3">
+    <div className="grid grid-cols-1 gap-10 sm:grid-cols-2">
       {ratings.map((r, i) => (
         <Arc key={r.platform} rating={r} delay={i * 160} />
       ))}

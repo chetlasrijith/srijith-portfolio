@@ -7,11 +7,13 @@ const SERIES = [
   { key: 'other', label: 'Everything else', opacity: 0.24 },
 ] as const
 
+type MonthData = { month: string; leetcode: number; codeforces: number; other: number }
+
 /**
  * Twelve columns, stacked by platform, bars clipped to a pill. The whole
  * stack scales from its baseline when it scrolls into view.
  */
-export function MonthlyBars({ data }: { data: typeof import('../../data/portfolio').codingStats.monthly }) {
+export function MonthlyBars({ data }: { data: MonthData[] }) {
   const { ref, inView } = useInView<HTMLDivElement>({ threshold: 0.2 })
   const max = Math.max(...data.map((d) => d.leetcode + d.codeforces + d.other))
   const total = data.reduce(

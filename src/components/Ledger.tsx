@@ -1,12 +1,11 @@
 import type { ReactNode } from 'react'
-import { codingStats } from '../data/portfolio'
 import { SectionHeader } from './ui/SectionHeader'
 import { Stat } from './ui/Stat'
 import { DifficultyLadder } from './stats/DifficultyLadder'
 import { RatingArcs } from './stats/RatingArcs'
-import { MonthlyBars } from './stats/MonthlyBars'
 import { ContributionGrid } from './stats/ContributionGrid'
-import { LanguageRibbon } from './stats/LanguageRibbon'
+import { useLiveCodingStats } from '../hooks/useLiveCodingStats'
+import { codeChefProfile } from '../data/portfolio'
 
 function Panel({
   label,
@@ -31,11 +30,35 @@ function Panel({
 }
 
 export function Ledger() {
-  const s = codingStats.headline
-  const tiers = [
-    codingStats.difficulty.easy,
-    codingStats.difficulty.medium,
-    codingStats.difficulty.hard,
+  const live = useLiveCodingStats()
+  const tiers = live.leetcode
+    ? [
+        { label: 'Easy', count: live.leetcode.easySolved },
+        { label: 'Medium', count: live.leetcode.mediumSolved },
+        { label: 'Hard', count: live.leetcode.hardSolved },
+      ]
+    : []
+  const ratings = [
+    ...(live.contest
+      ? [
+        {
+          platform: 'LeetCode',
+          handle: '@thechetla',
+          url: 'https://leetcode.com/u/thechetla/',
+          rating: Math.round(live.contest.rating),
+          max: 2200,
+          percentile: `Top ${live.contest.topPercentage.toFixed(2)}% · #${live.contest.globalRanking.toLocaleString('en-US')}`,
+        },
+      ]
+      : []),
+    {
+      platform: 'CodeChef',
+      handle: `@${codeChefProfile.handle}`,
+      url: codeChefProfile.url,
+      rating: codeChefProfile.rating,
+      max: 2100,
+      percentile: ``,
+    },
   ]
 
   return (
@@ -45,43 +68,42 @@ export function Ledger() {
           index="04"
           label="The ledger"
           title="Every problem, accounted for."
-          note="One figure per claim. No vanity percentages, no cherry-picked badges — just the raw tally of what I solved, where, and how consistently."
+          note={`Live coding & developer stats.`}
         />
 
-        {/* Headline numbers. Each one counts itself up on arrival. */}
-        <div className="mb-8 grid grid-cols-2 gap-x-8 gap-y-12 border-t border-slate pt-12 md:grid-cols-3 lg:grid-cols-5">
-          <Stat value={s.totalSolved} label="Problems solved" />
-          <Stat value={codingStats.ratings[0].rating} label="LeetCode rating" />
-          <Stat value={s.topPercent} suffix="%" label="Global percentile" />
-          <Stat value={s.currentStreak} label="Day streak" suffix="d" />
-          <Stat value={s.longestStreak} label="Longest streak" suffix="d" />
+        <div className="mb-8 grid grid-cols-2 gap-x-6 gap-y-8 border-t border-slate pt-12 md:grid-cols-3 xl:grid-cols-6">
+          <Stat size="md" value={live.leetcode?.totalSolved ?? null} label="LeetCode solved" />
+          <Stat
+            size="md"
+            value={live.contest ? Math.round(live.contest.rating) : null}
+            label="LeetCode rating"
+          />
+          <Stat size="md" value={live.contest?.globalRanking ?? null} label="LeetCode global rank" />
+          <Stat size="md" value={codeChefProfile.rating} label="CodeChef rating" />
+          <Stat size="md" value={live.publicCommits} label="Public commits " />
+          <Stat size="md" value={live.github?.total ?? null} label="GitHub contributions" />
         </div>
 
-        <div className="space-y-8">
-          <Panel label="By difficulty" title="The ladder">
-            <DifficultyLadder tiers={tiers} />
+        <div className="grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
+          <Panel label="LeetCode · all time" title="Problems by difficulty">
+            {live.leetcode ? (
+              <DifficultyLadder tiers={tiers} />
+            ) : (
+              <p className="text-[13px] text-stone">LeetCode problem counts are unavailable.</p>
+            )}
           </Panel>
 
-          <Panel label="Competitive programming" title="Rated where it counts">
-            <RatingArcs ratings={codingStats.ratings} />
+          <Panel label="LeetCode · CodeChef" title="Contest ratings">
+            <RatingArcs ratings={ratings} />
           </Panel>
 
-          <Panel label="Rolling 12 months" title="Where the problems came from">
-            <MonthlyBars data={codingStats.monthly} />
-          </Panel>
-
-          <Panel label="GitHub · last 12 months" title="A year of small commits">
-            <ContributionGrid />
-          </Panel>
-
-          <Panel label="By lines written" title="The language split">
-            <LanguageRibbon languages={codingStats.languages} />
+          <Panel label="GitHub · public activity" title="Contribution history" className="lg:col-span-2">
+            <ContributionGrid data={live.github} loading={live.loading} />
           </Panel>
         </div>
 
-        <p className="mt-8 text-[13px] text-stone">
-          Figures are maintained by hand in a single data file — no third-party embed, no
-          API that can go dark on a conference stage.
+        <p className="mt-6 text-[12px] text-stone">
+          GitHub commit count covers public commits; the contribution map also includes other public GitHub activity. Unavailable sources show a dash.
         </p>
       </div>
     </section>

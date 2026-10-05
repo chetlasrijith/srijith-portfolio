@@ -91,9 +91,9 @@ export function Experience() {
       <div className="shell">
         <SectionHeader
           index="03"
-          label="Experience"
-          title="Six years, three chapters."
-          note="The through-line is systems: queues, schedulers, ingestion, and the unglamorous reliability work that keeps them honest."
+          label="Experience & education"
+          title="Where the work has been."
+          note="The through-line is applied machine learning: automating a manual process end to end, then making it fast, concurrent and testable enough that other people can trust it."
         />
 
         <div className="grid grid-cols-1 md:grid-cols-[24px_1fr] md:gap-12">

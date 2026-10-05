@@ -17,8 +17,9 @@ export function Contact({ claimPrimary }: Props) {
 
         <p className="max-w-[680px] text-[21px] leading-[1.33] tracking-[-0.02em] text-paper md:text-[24px] md:leading-[1.29] md:tracking-[-0.24px]">
           I read everything that lands in my inbox, and I answer most of it within a day.
-          If you are building something with a scheduler, a stream, or a stubborn latency
-          problem in it, I would genuinely like to hear about it.
+          If you are building something with a model in it, an automation that has to
+          survive real-world mess, or a dataset nobody has looked at properly yet, I would
+          genuinely like to hear about it.
         </p>
 
         {/* The address, set as type rather than a form. */}

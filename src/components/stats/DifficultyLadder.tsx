@@ -1,7 +1,6 @@
 import { useInView } from '../../hooks/useInView'
-import { useCountUp } from '../../hooks/useCountUp'
 
-type Tier = { label: string; count: number; note: string }
+type Tier = { label: string; count: number; note?: string }
 
 /**
  * One row of the ladder: the tier's name, its odometer, and a row of tally
@@ -19,7 +18,6 @@ function TierRow({
   widest: number
   active: boolean
 }) {
-  const shown = useCountUp(tier.count, active, 1000)
   const marks = Math.max(3, Math.round(tier.count / 10))
   const isHard = tier.label === 'Hard'
 
@@ -29,12 +27,14 @@ function TierRow({
         <div className="flex items-baseline gap-4">
           <span className="text-heading-sm tracking-[-0.24px] text-paper">{tier.label}</span>
           <span className="text-[21px] leading-none tracking-[-0.02em] text-paper tabular-nums">
-            {shown}
+            {tier.count.toLocaleString('en-US')}
           </span>
         </div>
-        <span className="hidden max-w-[300px] text-right text-[13px] text-stone sm:block">
-          {tier.note}
-        </span>
+        {tier.note ? (
+          <span className="hidden max-w-[300px] text-right text-[13px] text-stone sm:block">
+            {tier.note}
+          </span>
+        ) : null}
       </div>
 
       {/* Tally — one mark per ten problems. */}
@@ -74,13 +74,13 @@ export function DifficultyLadder({ tiers }: { tiers: Tier[] }) {
   const widest = Math.max(...tiers.map((t) => t.count))
 
   return (
-    <div ref={ref} className="space-y-10">
+    <div ref={ref} className="space-y-6">
       {tiers.map((t, i) => (
         <TierRow key={t.label} tier={t} index={i} widest={widest} active={inView} />
       ))}
 
       <div className="flex items-baseline justify-between border-t border-slate pt-6">
-        <span className="eyebrow text-stone">Total solved across every platform</span>
+        <span className="eyebrow text-stone">Total LeetCode solved</span>
         <span className="text-[21px] leading-none tracking-[-0.02em] text-paper tabular-nums">
           {total}
         </span>

@@ -25,8 +25,10 @@ Deploy the `dist/` folder anywhere — Vercel, Netlify, Cloudflare Pages, GitHub
 |---|---|
 | `profile` | Name, headline, rotating hero role, about paragraphs, contact details, socials, résumé path |
 | `projects` | The work section — summary, description, stack, highlights, **live demo URL**, **GitHub URL**, preview style, metrics |
-| `experience` | The scrolling timeline |
+| `experience` | The scrolling timeline — roles and education |
 | `achievements` | The recognition list |
+| `certifications` | The certifications footnote in the awards section |
+| `skills` | The grouped technical-skills band in the about section |
 | `codingStats` | Every chart: difficulty ladder, rating arcs, monthly bars, contribution grid, language ribbon |
 
 ### Adding a project
@@ -54,8 +56,9 @@ new branch in `src/components/ProjectPreview.tsx`:
 
 ### Résumé
 
-Drop your PDF at `public/resume.pdf`, or change `profile.resumeUrl` and `profile.resumeFileName`.
-The download buttons pick it up automatically — both the hero and the contact section.
+The PDF lives at `public/srijith-chetla-resume.pdf`. To swap it, replace that file, or point
+`profile.resumeUrl` and `profile.resumeFileName` at a different path. Both the hero and the
+contact section download buttons pick it up automatically.
 
 ## Design system
 

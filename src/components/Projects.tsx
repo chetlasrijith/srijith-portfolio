@@ -4,10 +4,10 @@ import { SectionHeader } from './ui/SectionHeader'
 import { ProjectPreview } from './ProjectPreview'
 import { PillButton } from './ui/PillButton'
 
-/** Everything a project card promises: demo, source, stack, and proof. */
-function Links({ p, compact }: { p: Project; compact?: boolean }) {
+/** Compact links keep the project cards quick to scan. */
+function Links({ p }: { p: Project }) {
   const cls =
-    'inline-flex items-center gap-8 rounded-full border border-silver/25 px-5 py-2.5 text-[14px] font-medium tracking-[0.015em] text-paper transition-colors duration-200 hover:border-paper/70 hover:bg-graphite'
+    'inline-flex items-center gap-2 rounded-full border border-silver/25 px-3 py-1.5 text-[12px] font-medium text-paper transition-colors duration-200 hover:border-paper/70 hover:bg-graphite'
   return (
     <div className="flex flex-wrap items-center gap-3">
       {p.liveUrl ? (
@@ -60,11 +60,6 @@ function Links({ p, compact }: { p: Project; compact?: boolean }) {
         </a>
       ) : null}
 
-      {compact ? (
-        <span className="eyebrow ml-1 text-stone">
-          {p.status} · {p.year}
-        </span>
-      ) : null}
     </div>
   )
 }
@@ -81,9 +76,9 @@ function Card({ p }: { p: Project }) {
         style={{ clipPath: 'inset(0 100% 0 0)' }}
       />
 
-      <div className="relative grid grid-cols-1 gap-8 p-5 sm:p-6 lg:grid-cols-12 lg:gap-10 lg:p-8">
+      <div className="relative grid grid-cols-1 gap-4 p-4 sm:p-5">
         {/* ── Left: the argument ── */}
-        <div className="lg:col-span-5">
+        <div className="min-w-0">
           <div className="flex items-baseline gap-4">
             <span className="font-mono text-[13px] tracking-[0.195px] text-stone">
               {p.index}
@@ -94,71 +89,79 @@ function Card({ p }: { p: Project }) {
             </span>
           </div>
 
-          <h3 className="mt-5 text-[26px] leading-[1.25] tracking-[-0.3px] text-paper">
+          <h3 className="mt-3 text-[21px] leading-[1.25] tracking-normal text-paper">
             {p.name}
           </h3>
-          <p className="mt-2 text-body-lg text-pearl">{p.summary}</p>
+          <p className="mt-1 text-[14px] leading-[1.45] text-pearl">{p.summary}</p>
 
-          <p className="mt-6 max-w-[460px] text-body leading-[1.5] text-ash">{p.description}</p>
+          <details className="mt-3 border-t border-slate pt-3">
+            <summary className="cursor-pointer text-[12px] text-ash">More details</summary>
+            <div className="pt-3">
+              <p className="text-[13px] leading-[1.5] text-ash">{p.description}</p>
 
-          {p.highlights.length ? (
-            <ul className="mt-7 space-y-3">
-              {p.highlights.map((h) => (
-                <li key={h} className="flex gap-3 text-[14px] leading-[1.5] text-pearl">
-                  <span className="mt-2 h-px w-3 shrink-0 bg-slate" />
-                  {h}
-                </li>
-              ))}
-            </ul>
-          ) : null}
+              {p.highlights.length ? (
+                <ul className="mt-3 space-y-2">
+                  {p.highlights.map((h) => (
+                    <li key={h} className="flex gap-2 text-[12px] leading-[1.5] text-pearl">
+                      <span className="mt-2 h-px w-2.5 shrink-0 bg-slate" />
+                      {h}
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
 
-          {/* Proof, not adjectives. */}
-          {p.metrics ? (
-            <div className="mt-7 flex flex-wrap gap-x-8 gap-y-5 border-t border-slate pt-6">
-              {p.metrics.map((m) => (
-                <div key={m.label}>
-                  <div className="text-[21px] leading-none tracking-[-0.02em] text-paper tabular-nums">
-                    {m.value}
-                  </div>
-                  <div className="eyebrow mt-2 text-stone">{m.label}</div>
-                </div>
-              ))}
+              {p.metrics ? (
+                <dl className="mt-4 grid grid-cols-3 gap-2 border-t border-slate pt-3">
+                  {p.metrics.map((m) => (
+                    <div key={m.label}>
+                      <dt className="text-[16px] text-paper tabular-nums">{m.value}</dt>
+                      <dd className="eyebrow mt-1 text-stone">{m.label}</dd>
+                    </div>
+                  ))}
+                </dl>
+              ) : null}
+
+              <p className="mt-3 text-[11px] text-stone">Stack: {p.stack.join(' · ')}</p>
             </div>
-          ) : null}
+          </details>
 
-          <div className="mt-8 flex flex-wrap gap-2">
-            {p.stack.map((s) => (
+          <div className="mt-3 flex flex-wrap gap-1.5">
+            {p.stack.slice(0, 4).map((s) => (
               <span
                 key={s}
-                className="rounded-full border border-silver/15 px-3 py-1 text-[13px] tracking-[0.015em] text-ash"
+                className="rounded-full border border-silver/15 px-2 py-0.5 text-[11px] text-ash"
               >
                 {s}
               </span>
             ))}
+            {p.stack.length > 4 ? (
+              <span className="px-1 py-0.5 font-mono text-[11px] text-stone">
+                +{p.stack.length - 4}
+              </span>
+            ) : null}
           </div>
 
-          <div className="mt-8">
+          <div className="mt-4">
             <Links p={p} />
           </div>
         </div>
 
-        {/* ── Right: the artefact ── */}
-        <div className="relative lg:col-span-7">
+        {/* Preview stays visible; longer project details open on demand. */}
+        <div className="relative order-first">
           <div className="overflow-hidden rounded-xl transition-transform duration-700 ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-[1.012]">
             <ProjectPreview variant={p.preview} name={p.name} />
           </div>
 
-          {/* URL shown as text, because a real portfolio should show its work. */}
-          <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
+          <div className="mt-3 flex flex-wrap items-center justify-between gap-2">
             <a
               href={p.liveUrl ?? p.repoUrl ?? '#'}
               target="_blank"
               rel="noreferrer noopener"
-              className="font-mono text-[13px] text-stone underline decoration-silver/20 underline-offset-4 transition-colors hover:text-pearl hover:decoration-paper/60"
+              className="min-w-0 truncate font-mono text-[11px] text-stone underline decoration-silver/20 underline-offset-4 transition-colors hover:text-pearl hover:decoration-paper/60"
             >
               {p.liveUrl ? p.liveUrl.replace(/^https?:\/\//, '') : (p.repoUrl ?? '').replace(/^https?:\/\//, '')}
             </a>
-            <span className="eyebrow text-stone">Hover to inspect</span>
+            <span className="eyebrow text-stone">Preview</span>
           </div>
         </div>
       </div>
@@ -182,7 +185,7 @@ export function Projects() {
         <SectionHeader
           index="02"
           label="Selected work"
-          title="Five things I built because they were missing."
+          title="Some things I built because they were missing."
           note="Every project below is open to inspection — a live deployment you can break, and the repository that explains why it works. No screenshots standing in for substance."
         />
 
@@ -207,7 +210,7 @@ export function Projects() {
           </span>
         </div>
 
-        <div className="space-y-8">
+        <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
           {shown.map((p) => (
             <Card key={p.id} p={p} />
           ))}
