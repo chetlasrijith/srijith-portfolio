@@ -23,8 +23,8 @@ export const profile = {
   timezone: 'Asia/Kolkata',
   email: 'chetlasrijith@gmail.com',
   phone: '+91 70324 40444',
-  resumeUrl: '/srijith-chetla-resume.pdf',
-  resumeFileName: 'Srijith-Chetla-Resume.pdf',
+  resumeUrl: '/srijith_resume.pdf',
+  resumeFileName: 'srijith_resume.pdf',
   availability: 'Open to new roles — 2026',
   socials: [
     { label: 'GitHub', handle: '@chetlasrijith', url: 'https://github.com/chetlasrijith' },
