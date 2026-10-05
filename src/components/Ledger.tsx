@@ -62,7 +62,7 @@ export function Ledger() {
   ]
 
   return (
-    <section id="ledger" className="relative z-10 py-24 md:py-32">
+    <section id="ledger" className="relative z-10 py-16 md:py-24">
       <div className="shell">
         <SectionHeader
           index="04"

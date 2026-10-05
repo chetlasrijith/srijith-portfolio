@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-/** Local time in the footer — a small proof the page is alive. */
+/** Local time in the footer, a small proof the page is alive. */
 export function useLocalTime(timeZone: string) {
   const [time, setTime] = useState('')
 

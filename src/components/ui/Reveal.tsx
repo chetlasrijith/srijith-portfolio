@@ -13,7 +13,7 @@ type RevealProps = {
 }
 
 /**
- * Mask-wipe reveal. The line rises out of its own overflow clip — geometry,
+ * Mask-wipe reveal. The line rises out of its own overflow clip using geometry,
  * never an opacity fade. Fires once.
  */
 export function Reveal({ children, delay = 0, travel = 110, className }: RevealProps) {

@@ -4,12 +4,12 @@ import { Reveal } from './ui/Reveal'
 
 export function About() {
   return (
-    <section id="about" className="relative z-10 pb-24 md:pb-32">
+    <section id="about" className="relative z-10 pb-16 md:pb-24">
       <div className="shell">
         <SectionHeader index="01" label="About" title="Who is writing this." />
 
         <div className="grid grid-cols-1 gap-x-12 gap-y-14 lg:grid-cols-12">
-          {/* Editorial body block — prose held at a readable editorial scale. */}
+          {/* Editorial body block, with prose held at a readable scale. */}
           <div className="lg:col-span-8">
             {profile.about.map((para, i) => (
               <Reveal key={i} delay={i * 110}>
@@ -24,7 +24,7 @@ export function About() {
             ))}
           </div>
 
-          {/* Quiet facts rail. One rigid two-column grid, revealed as a single block —
+          {/* Quiet facts rail. One rigid two-column grid, revealed as a single block.
                 per-row clipping masks let the rows slide through each other. */}
           <aside className="lg:col-span-4 lg:border-l lg:border-slate lg:pl-10">
             <Reveal travel={22}>
@@ -46,7 +46,7 @@ export function About() {
           </aside>
         </div>
 
-        {/* Technical skills — grouped, quiet, no icons. */}
+        {/* Technical skills, grouped with no icons. */}
         <div className="mt-16 border-t border-slate pt-12 md:mt-20">
           <div className="flex items-baseline gap-4">
             <span className="eyebrow text-ash">Technical skills</span>

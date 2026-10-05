@@ -37,7 +37,7 @@ function TierRow({
         ) : null}
       </div>
 
-      {/* Tally — one mark per ten problems. */}
+      {/* Tally marks use one mark per ten problems. */}
       <div className="mt-4 flex flex-wrap gap-[6px]">
         {Array.from({ length: marks }).map((_, m) => (
           <span

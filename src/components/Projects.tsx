@@ -180,16 +180,16 @@ export function Projects() {
   const shown = filter === 'All' ? projects : projects.filter((p) => p.stack.includes(filter))
 
   return (
-    <section id="work" className="relative z-10 py-24 md:py-32">
+    <section id="work" className="relative z-10 py-16 md:py-24">
       <div className="shell">
         <SectionHeader
           index="02"
           label="Selected work"
           title="Some things I built because they were missing."
-          note="Every project below is open to inspection — a live deployment you can break, and the repository that explains why it works. No screenshots standing in for substance."
+          note="Every project below is open to inspection. Each has a live deployment you can break and a repository that explains why it works. No screenshots stand in for substance."
         />
 
-        {/* Filter pills — the system's only control geometry. */}
+        {/* Filter pills, the system's only control geometry. */}
         <div className="no-scrollbar -mx-6 mb-12 flex gap-2 overflow-x-auto px-6 md:mb-16">
           {tags.map((t) => (
             <button
@@ -216,7 +216,7 @@ export function Projects() {
           ))}
         </div>
 
-        {/* Secondary proof wall — compact, single column, no previews. */}
+        {/* Secondary proof wall, compact and without previews. */}
         <div className="mt-20 border-t border-slate pt-12">
           <div className="flex flex-wrap items-end justify-between gap-6">
             <h3 className="max-w-[520px] text-[26px] leading-[1.2] tracking-[-0.3px] text-paper md:text-[30px]">

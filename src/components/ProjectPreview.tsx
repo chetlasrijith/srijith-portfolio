@@ -3,14 +3,14 @@ import type { Project } from '../data/portfolio'
 /**
  * Each project gets a distinct silhouette so the wall of cards reads as a
  * gallery of different work. Drawn entirely in surface steps and silver
- * hairlines — no imagery, no colour, no icons from a library.
+ * hairlines, with no imagery, colour, or library icons.
  */
 export function ProjectPreview({ variant, name }: { variant: Project['preview']; name: string }) {
   const hair = 'stroke-silver/12'
 
   return (
     <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl bg-graphite">
-      {/* Window chrome — 1px dots, no colour. */}
+      {/* Window chrome: 1px dots with no colour. */}
       <div className="flex items-center gap-2 border-b border-silver/10 px-5 py-4">
         <span className="h-1.5 w-1.5 rounded-full bg-slate" />
         <span className="h-1.5 w-1.5 rounded-full bg-slate" />

@@ -26,9 +26,9 @@ export function Hero() {
   return (
     <section id="hero" className="relative z-10 flex flex-col justify-center pt-28 pb-0 md:pt-32">
       <div className="shell">
-        <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.9fr)] lg:gap-16">
+        <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(320px,1.05fr)] lg:gap-16">
           <div className="min-w-0">
-            {/* Availability — the only editorial annotation above the name. */}
+            {/* Availability, the only editorial annotation above the name. */}
             <div className="mb-8 flex items-center gap-3">
               <span className="anim-dot h-1.5 w-1.5 rounded-full bg-paper" />
               <span className="eyebrow">{profile.availability}</span>
@@ -60,7 +60,7 @@ export function Hero() {
 
             {/* Subhead caption, 16px pearl. */}
             <p className="mt-10 max-w-[560px] text-body-lg leading-[1.5] text-pearl">
-              I design and build intelligent systems, backend infrastructure and developer tooling — mostly in Python, with an unreasonable amount of AI, 
+              I design and build intelligent systems, backend infrastructure and developer tooling, mostly in Python, with an unreasonable amount of AI,
               automation and distributed workloads in the mix. Currently
               an AI intern at Deloitte, graduating B.Tech in 2027.
             </p>
@@ -76,11 +76,11 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="mx-auto w-full max-w-[320px] sm:max-w-[400px] lg:mx-0 lg:ml-auto lg:max-w-[520px]">
+          <div className="mx-auto w-full max-w-[320px] sm:max-w-[400px] lg:mx-0 lg:ml-auto lg:max-w-[570px]">
             <img
               src="/srijith_hero_2.png"
               alt="Srijith Chetla"
-              className="relative top-[13px] block h-auto max-h-[560px] w-full object-contain object-bottom"
+              className="relative top-[17px] block h-auto max-h-[560px] w-full object-contain object-bottom"
             />
           </div>
         </div>

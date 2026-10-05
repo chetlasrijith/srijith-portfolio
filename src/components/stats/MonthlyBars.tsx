@@ -30,7 +30,7 @@ export function MonthlyBars({ data }: { data: MonthData[] }) {
           const h = (t / max) * 100
           return (
             <div key={d.month} className="group/bar relative flex flex-1 flex-col justify-end">
-              {/* Hover readout — a graphite pill, not a tooltip bubble. */}
+              {/* Hover readout: a graphite pill, not a tooltip bubble. */}
               <div className="pointer-events-none absolute -top-2 left-1/2 z-10 hidden -translate-x-1/2 -translate-y-full whitespace-nowrap rounded-full border border-silver/15 bg-graphite px-3 py-1.5 group-hover/bar:block">
                 <span className="font-mono text-[11px] text-paper tabular-nums">{t}</span>
                 <span className="ml-2 font-mono text-[11px] text-stone">{d.month}</span>

@@ -4,14 +4,14 @@ import { PillButton } from './ui/PillButton'
 import { SplitText } from './ui/SplitText'
 
 type Props = {
-  /** The hero already owns the filled CTA. This section only takes it over once
-   *  the hero has left the viewport — one indigo pill per screen, always. */
+  /** The hero owns the filled CTA until it leaves the viewport. This keeps one
+   *  indigo pill on screen at a time. */
   claimPrimary: boolean
 }
 
 export function Contact({ claimPrimary }: Props) {
   return (
-    <section id="contact" className="relative z-10 py-24 md:py-32">
+    <section id="contact" className="relative z-10 py-16 md:py-24">
       <div className="shell">
         <SectionHeader index="06" label="Contact" title="Say hello." />
 
@@ -75,7 +75,7 @@ export function Contact({ claimPrimary }: Props) {
         </div>
       </div>
 
-      {/* Full-bleed closer. Each glyph inverts on hover — no colour involved. */}
+      {/* Full-bleed closer. Each glyph inverts on hover without adding colour. */}
       <div className="mt-16 select-none overflow-hidden border-t border-slate py-16 md:mt-20 md:py-20">
         <div className="flex justify-center text-center text-[clamp(30px,7vw,84px)] leading-[1.02] tracking-[-0.035em]">
           <SplitText text="LET'S WORK" stagger={22} className="text-paper" />

@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 
 /**
  * A barely-there 1px grid across the whole canvas that brightens within ~380px
- * of the pointer. Silver at two very low opacities — the lightness comes from
+ * of the pointer. Silver at two very low opacities. The lightness comes from
  * the mask moving, never from a new colour. Retires on touch devices.
  */
 export function CursorField({ faded }: { faded: boolean }) {
@@ -54,7 +54,7 @@ export function CursorField({ faded }: { faded: boolean }) {
             'radial-gradient(380px circle at var(--px, 50%) var(--py, 50%), #000 0%, transparent 72%)',
         }}
       />
-      {/* The grid retires as soon as you leave the hero — it is texture, not furniture. */}
+      {/* The grid retires as soon as you leave the hero because it is texture, not furniture. */}
       <div
         className={`absolute inset-0 bg-obsidian transition-opacity duration-700 ${
           faded ? 'opacity-100' : 'opacity-0'

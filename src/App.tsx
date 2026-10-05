@@ -31,7 +31,7 @@ export default function App() {
       {/* Cursor field retires once you leave the hero. */}
       <CursorField faded={pastHero} />
 
-      {/* Scroll progress — a 1px silver rule pinned to the top of the viewport. */}
+      {/* Scroll progress: a 1px silver rule pinned to the top of the viewport. */}
       <div className="pointer-events-none fixed inset-x-0 top-0 z-[60] h-px bg-silver/10">
         <div
           className="h-full origin-left bg-silver/40"

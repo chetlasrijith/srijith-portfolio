@@ -20,7 +20,7 @@ export function Stat({ value, label, note, size = 'lg', suffix }: Props) {
             : 'text-[28px] leading-none tracking-[-0.3px] text-paper tabular-nums'
         }
       >
-        {value === null ? '—' : value.toLocaleString('en-US')}
+        {value === null ? 'N/A' : value.toLocaleString('en-US')}
         {value !== null && suffix ? <span className="text-stone">{suffix}</span> : null}
       </div>
       <div className="eyebrow mt-3 text-ash">{label}</div>

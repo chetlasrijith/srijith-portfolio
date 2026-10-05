@@ -1,9 +1,9 @@
-# Srijith Chetla — Portfolio
+# Srijith Chetla: Portfolio
 
 A single-page portfolio built on a strict dark editorial system: near-black canvas, one electric
 indigo accent, oversized type, pill controls, and **zero** shadows, gradients or extra hues.
 
-All creativity is spent on motion and typography — mask-wipe reveals, per-character clip
+All creativity is spent on motion and typography, including mask-wipe reveals, per-character clip
 assemblies, scroll-linked travel, and hand-built SVG charts that count themselves up.
 
 ## Run it
@@ -15,7 +15,7 @@ npm run build    # typecheck + production build to dist/
 npm run preview  # serve the production build
 ```
 
-Deploy the `dist/` folder anywhere — Vercel, Netlify, Cloudflare Pages, GitHub Pages.
+Deploy the `dist/` folder anywhere, including Vercel, Netlify, Cloudflare Pages, or GitHub Pages.
 
 ## Editing content
 
@@ -24,8 +24,8 @@ Deploy the `dist/` folder anywhere — Vercel, Netlify, Cloudflare Pages, GitHub
 | Export | What it drives |
 |---|---|
 | `profile` | Name, headline, rotating hero role, about paragraphs, contact details, socials, résumé path |
-| `projects` | The work section — summary, description, stack, highlights, **live demo URL**, **GitHub URL**, preview style, metrics |
-| `experience` | The scrolling timeline — roles and education |
+| `projects` | The work section: summaries, descriptions, stack, highlights, **live demo URL**, **GitHub URL**, preview style, and metrics |
+| `experience` | The scrolling timeline of roles and education |
 | `achievements` | The recognition list |
 | `certifications` | The certifications footnote in the awards section |
 | `skills` | The grouped technical-skills band in the about section |
@@ -64,15 +64,15 @@ contact section download buttons pick it up automatically.
 
 Defined once in `src/index.css` under Tailwind v4's `@theme`.
 
-- **Colour** — Obsidian `#050505` canvas, Charcoal `#151515` panels, Graphite `#1e1e1e` overlays.
+- **Colour:** Obsidian `#050505` canvas, Charcoal `#151515` panels, Graphite `#1e1e1e` overlays.
   Electric Indigo `#1500ff` appears in exactly four places: the single primary CTA per viewport,
   the dot travelling down the experience rail, the Hard tier in the difficulty ladder, and your
   record-streak day in the contribution grid.
-- **Type** — one geometric sans at every scale. The hero is `clamp(56px, 11.5vw, 144px)` at
+- **Type:** one geometric sans at every scale. The hero is `clamp(56px, 11.5vw, 144px)` at
   `line-height: 0.96` and `-0.04em` tracking so the name compresses into a sculptural block.
-- **Radius** — binary. `9999px` for every interactive element, `14px` for every passive surface.
+- **Radius:** binary, with `9999px` for every interactive element and `14px` for every passive surface.
   Nothing in between.
-- **Elevation** — surface colour steps only. There are no drop shadows anywhere.
+- **Elevation:** surface colour steps only. There are no drop shadows anywhere.
 
 ## Accessibility
 

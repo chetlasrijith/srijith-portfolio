@@ -42,11 +42,11 @@
   --spacing-96: 96px;
   --spacing-128: 128px;
 
-  /* Radius — binary vocabulary: pills and 14px cards, nothing between */
+  /* Radius: binary vocabulary with pills and 14px cards, nothing between. */
   --radius-xl: 14px;
   --radius-full: 9999px;
 
-  /* Motion — no shadows or gradients exist in this system */
+  /* Motion: no shadows or gradients exist in this system. */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -99,7 +99,7 @@
 }
 
 @layer components {
-  /* Catalogue frame — one shared container, 64px of void between sections */
+  /* Catalogue frame: one shared container with 64px between sections. */
   .shell {
     width: 100%;
     max-width: 1200px;

@@ -20,7 +20,7 @@ function Role({
       className="grid grid-cols-1 gap-6 pb-20 md:grid-cols-[1fr_auto] md:gap-12"
       style={{ opacity: inView ? 1 : 0.28, transition: 'opacity 700ms var(--ease-out-expo)' }}
     >
-      {/* Rail marker — a hollow ring that fills as the role comes into view. */}
+      {/* Rail marker: a hollow ring that fills as the role comes into view. */}
       <div className="hidden md:block">
         <span
           className="block h-[11px] w-[11px] rounded-full border transition-all duration-700"
@@ -87,7 +87,7 @@ export function Experience() {
   const rail = useRef<HTMLDivElement | null>(null)
 
   return (
-    <section id="experience" className="relative z-10 py-24 md:py-32">
+    <section id="experience" className="relative z-10 py-16 md:py-24">
       <div className="shell">
         <SectionHeader
           index="03"

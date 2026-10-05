@@ -2,7 +2,7 @@
  * ─────────────────────────────────────────────────────────────────────────────
  *  SINGLE SOURCE OF TRUTH
  *  Everything on this site reads from this file. Nothing is hardcoded in a
- *  component. Replace the mock values below with your real content — no other
+ *  component. Replace the mock values below with your real content. No other
  *  file needs to change.
  * ─────────────────────────────────────────────────────────────────────────────
  */
@@ -25,14 +25,14 @@ export const profile = {
   phone: '+91 70324 40444',
   resumeUrl: '/srijith_resume.pdf',
   resumeFileName: 'srijith_resume.pdf',
-  availability: 'Open to new roles — 2026',
+  availability: 'Open to new roles in 2026',
   socials: [
     { label: 'GitHub', handle: '@chetlasrijith', url: 'https://github.com/chetlasrijith' },
     { label: 'LinkedIn', handle: 'in/srijithchetla', url: 'https://linkedin.com/in/srijithchetla' },
     { label: 'LeetCode', handle: '@thechetla', url: 'https://leetcode.com/u/thechetla/' },
   ],
   about: [
-    'I build intelligent systems that turn messy, manual processes into things that can run on their own — from browser automation and data pipelines to computer vision systems that have to work outside a notebook.',
+    'I build intelligent systems that turn messy, manual processes into things that can run on their own, from browser automation and data pipelines to computer vision systems that have to work outside a notebook.',
     'Most of my work sits somewhere between machine learning and engineering. I like taking models out of isolation and giving them the infrastructure they need to be useful: concurrency, APIs, caching, fault tolerance, observability, and the occasional battle with a system that was never designed to be automated.',
     'I’m particularly drawn to problems where the interesting part isn’t getting something to work once, but making it fast, reliable, and resilient enough that other people can stop thinking about it. Outside of that, I spend an unreasonable amount of time solving problems, experimenting with new tools, and building things simply because I want to understand how they work. That curiosity has also taken me to the ACM-ICPC Asia Amritapuri Regionals.',
   ],
@@ -46,8 +46,6 @@ marquee: [
   "Backend Engineering",
   "Performance Optimization",
   "Competitive Programming",
-  "ACM-ICPC Regionalist",
-  "Builder at Heart",
 ],
 }
 
@@ -80,7 +78,7 @@ export const projects: Project[] = [
     status: 'Live',
     summary: 'A multiplayer whiteboard where 200 cursors never fight.',
     description:
-      'Rift is a CRDT-backed collaborative canvas. Every stroke, selection and cursor is a replicated operation, so a dropped websocket reconnects without a merge prompt. The hard part was not the CRDT — it was making presence feel instantaneous at 240ms.',
+      'Rift is a CRDT-backed collaborative canvas. Every stroke, selection and cursor is a replicated operation, so a dropped websocket reconnects without a merge prompt. The hard part was not the CRDT. It was making presence feel instantaneous at 240ms.',
     stack: ['TypeScript', 'Rust', 'WebSocket', 'Yjs', 'React', 'Postgres'],
     highlights: [
       'Sub-40ms broadcast latency at 200 concurrent editors',
@@ -210,16 +208,17 @@ export const experience: Role[] = [
   {
     company: 'Deloitte',
     title: 'AI Intern',
-    period: 'June 2026 — Present',
+    period: 'June 2026 to Present',
     location: 'Hyderabad, Telangana',
     summary:
-      'Engineer an LLM-driven browser automation platform that clears background verification across third-party HR portals without a person in the loop.',
+      'Built AI-powered enterprise automation systems using Python, FastAPI, LangGraph, PostgreSQL, and LLMs. Worked across agentic workflows, data pipelines, document processing, API development, and intelligent automation, integrating AI capabilities into production business processes.',
     points: [
-      'Cut turnaround from 1 hour to 7 minutes — an 8.6× speedup across 1,000+ verification runs',
+      'Engineered an LLM-driven browser-automation platform that automates background verification across third-party HR portals',
+      'Cut turnaround from 1 hour to 7 minutes, an 8.6× speedup across 1,000+ verification runs',
       'Containerised 5 services with Docker and orchestrated tasks through Celery + Redis across 20 concurrent workers, adding Playwright slot management, worker recycling and autoscaling',
       'Reduced average per-run time 25–50% (400s → 200–300s) through LLM-response caching, circuit breakers, HTTP connection pooling, retry tuning and error-page detection',
       'Built and modified 20+ REST APIs across verification and data-processing workflows, persisting job and result state to PostgreSQL and candidate documents to AWS S3',
-      'Developed a 13-layer ERP data-preparation and forensic-analytics pipeline — 14 business modules, 163+ automated tests — flagging duplicate PAN/GSTIN records, PO splitting, Benford’s Law violations and segregation-of-duties conflicts across 120K+ rows',
+      'Developed a 13-layer ERP data-preparation and forensic-analytics pipeline with 14 business modules and 163+ automated tests. It flags duplicate PAN/GSTIN records, PO splitting, Benford’s Law violations and segregation-of-duties conflicts across 120K+ rows.',
     ],
     stack: ['Python', 'asyncio', 'Playwright', 'browser-use', 'Celery', 'Redis', 'PostgreSQL', 'AWS S3', 'Docker'],
   },
@@ -250,17 +249,17 @@ export const achievements: Achievement[] = [
     title: 'Research paper accepted',
     org: 'IEEE GCON 2026',
     detail:
-      '“Underwater Plastic Waste Detection Using Deep Learning Techniques” — published in the IEEE GCON 2026 proceedings.',
+      '“Underwater Plastic Waste Detection Using Deep Learning Techniques,” published in the IEEE GCON 2026 proceedings.',
   },
   {
     year: '2025',
-    title: 'Amazon ML Summer School — top 5%',
+    title: 'Amazon ML Summer School, top 5%',
     org: 'Amazon',
     detail: 'Selected among the top 5% of more than 60,000 applicants nationwide.',
   },
   {
     year: '2025',
-    title: 'Winner — DataHack Hackathon',
+    title: 'Winner of the DataHack Hackathon',
     org: 'Dept. of CSE (Data Science)',
     detail:
       'First place in the DataHack hackathon at Vardhaman College of Engineering.',

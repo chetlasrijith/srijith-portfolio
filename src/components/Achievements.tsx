@@ -4,7 +4,7 @@ import { Reveal } from './ui/Reveal'
 
 export function Achievements() {
   return (
-    <section id="awards" className="relative z-10 py-24 md:py-32">
+    <section id="awards" className="relative z-10 py-16 md:py-24">
       <div className="shell">
         <SectionHeader
           index="05"
@@ -36,7 +36,7 @@ export function Achievements() {
           ))}
         </div>
 
-        {/* Certifications — the quiet footnote to the list above. */}
+        {/* Certifications, the quiet footnote to the list above. */}
         <div className="mt-16">
           <div className="flex items-baseline gap-4">
             <span className="eyebrow text-ash">Certifications</span>

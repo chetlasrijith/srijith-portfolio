@@ -7,7 +7,7 @@ type SplitTextProps = {
   /** ms between characters on the first sweep. */
   stagger?: number
   delay?: number
-  /** Reverse the cascade — used for the hero, right to left. */
+  /** Reverse the cascade, used for the hero from right to left. */
   from?: 'left' | 'right'
 }
 
