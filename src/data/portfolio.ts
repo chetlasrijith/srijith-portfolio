@@ -54,13 +54,16 @@ export type Project = {
   index: string
   name: string
   year: string
-  status: 'Live' | 'In production' | 'Archived' | 'Prototype'
+  status: 'Planned' | 'Live' | 'In production' | 'Archived' | 'Prototype'
   /** One line. Reads as the card's subhead at 18px. */
   summary: string
   /** The 36px editorial paragraph. Two or three sentences at most. */
   description: string
   stack: string[]
   highlights: string[]
+  imageUrl: string
+  imageAlt: string
+  imageCredit?: string
   liveUrl: string | null
   repoUrl: string | null
   featured?: boolean
@@ -71,126 +74,112 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    id: 'rift',
+    id: 'shadow-leak-detector',
     index: '01',
-    name: 'Rift',
+    name: 'ShadowLeakDetector',
     year: '2026',
-    status: 'Live',
-    summary: 'A multiplayer whiteboard where 200 cursors never fight.',
+    status: 'Planned',
+    summary: 'A security and privacy project currently in the planning stage.',
     description:
-      'Rift is a CRDT-backed collaborative canvas. Every stroke, selection and cursor is a replicated operation, so a dropped websocket reconnects without a merge prompt. The hard part was not the CRDT. It was making presence feel instantaneous at 240ms.',
-    stack: ['TypeScript', 'Rust', 'WebSocket', 'Yjs', 'React', 'Postgres'],
-    highlights: [
-      'Sub-40ms broadcast latency at 200 concurrent editors',
-      'Conflict-free offline merge via a custom CRDT log',
-      'Virtualised canvas holds 60fps above 12,000 shapes',
-    ],
-    liveUrl: 'https://rift.example.com',
-    repoUrl: 'https://github.com/chetlasrijith/rift',
-    featured: true,
-    preview: 'canvas',
-    metrics: [
-      { label: 'Peak editors', value: '200' },
-      { label: 'p95 latency', value: '38ms' },
-      { label: 'Uptime', value: '99.98%' },
-    ],
-  },
-  {
-    id: 'pulse',
-    index: '02',
-    name: 'Pulse',
-    year: '2025',
-    status: 'In production',
-    summary: 'Streaming observability that renders a million points without dropping a frame.',
-    description:
-      'A metrics and trace explorer for teams that were outgrowing their dashboards. Ingests a billion-row ClickHouse cluster, downsamples in the worker, and draws the result straight into a WebGL buffer so the browser never holds more than a screenful of data.',
-    stack: ['Go', 'ClickHouse', 'WebGL', 'React', 'gRPC'],
-    highlights: [
-      'Server-side downsampling cut storage 40x with no visible loss',
-      'WebGL scatter layer renders 1M points at 60fps',
-      'Query builder that compiles straight to SQL, no dashboard YAML',
-    ],
-    liveUrl: 'https://pulse.example.com',
-    repoUrl: 'https://github.com/chetlasrijith/pulse',
-    featured: true,
-    preview: 'streams',
-    metrics: [
-      { label: 'Points drawn', value: '1.2M' },
-      { label: 'Ingest', value: '80k/s' },
-      { label: 'Storage cut', value: '40x' },
-    ],
-  },
-  {
-    id: 'kestrel',
-    index: '03',
-    name: 'Kestrel',
-    year: '2025',
-    status: 'In production',
-    summary: 'A durable job engine where retries are a type, not a config file.',
-    description:
-      'Kestrel is a workflow engine built around a small algebraic core: steps compose with then, retry, and fan-out, and the typechecker rejects the schedules that would page you at 3am. Backed by Redis streams, exactly-once in practice via idempotency keys.',
-    stack: ['TypeScript', 'Node', 'Redis', 'BullMQ', 'Zod'],
-    highlights: [
-      'Step composition checked at compile time, not at 3am',
-      'Idempotency keys make at-least-once delivery behave like once',
-      'Zero-downtime deploys with in-flight job draining',
-    ],
-    liveUrl: 'https://kestrel.example.com',
-    repoUrl: 'https://github.com/chetlasrijith/kestrel',
-    preview: 'queue',
-    metrics: [
-      { label: 'Jobs / day', value: '2.4M' },
-      { label: 'Retry safety', value: '100%' },
-      { label: 'Deps', value: '1' },
-    ],
-  },
-  {
-    id: 'sift',
-    index: '04',
-    name: 'Sift',
-    year: '2024',
-    status: 'Live',
-    summary: 'grep that understands your stack traces.',
-    description:
-      'A terminal tool and WASM library that fingerprints a stack trace, resolves it against your lockfile, and prints the one-line cause instead of forty lines of frames. Ships as a single static binary and as a 90KB browser build.',
-    stack: ['Rust', 'WebAssembly', 'Tree-sitter'],
-    highlights: [
-      'Traces fingerprinted against a 4,000-entry error corpus',
-      '90KB WASM build running the same matcher as the CLI',
-      'Adopted by three teams and never asked to be removed',
-    ],
-    liveUrl: 'https://sift.example.com',
-    repoUrl: 'https://github.com/chetlasrijith/sift',
+      'This project has not been implemented yet. Its detection scope, interface, and technical approach are still being defined.',
+    stack: [],
+    highlights: [],
+    imageUrl: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1400&q=85',
+    imageAlt: 'Abstract cybersecurity scene with a glowing digital lock',
+    liveUrl: null,
+    repoUrl: 'https://github.com/chetlasrijith/ShadowLeakDetector',
     preview: 'terminal',
-    metrics: [
-      { label: 'Binary', value: '6.1MB' },
-      { label: 'WASM', value: '90KB' },
-      { label: 'Cold parse', value: '11ms' },
-    ],
   },
   {
-    id: 'orbit',
-    index: '05',
-    name: 'Orbit',
-    year: '2024',
+    id: 'retina-vision-ai',
+    index: '02',
+    name: 'RetinaVision AI',
+    year: '2026',
     status: 'Prototype',
-    summary: 'A shader playground for shapes that should not be possible on a quad.',
+    summary: 'Deep learning models classify retinal scans across six eye conditions.',
     description:
-      'Signed distance fields, marching cubes and a hand-written raymarcher in one page. Built to learn GLSL properly, then kept because turning a function into a solid turned out to be the most fun I had all year.',
-    stack: ['GLSL', 'Three.js', 'TypeScript'],
+      'RetinaVision AI combines convolutional neural networks and Vision Transformers with a Streamlit app for retinal image predictions. The README describes a roughly 50,000-image dataset and a GPU-supported training workflow.',
+    stack: ['Python', 'TensorFlow', 'Keras', 'OpenCV', 'Streamlit', 'Vision Transformers'],
     highlights: [
-      'Raymarched SDF scene at 120fps on integrated graphics',
-      'Live shader hot-reload with a uniform history panel',
-      'Export any shape as a printable STL',
+      'Classifies AMD, cataract, diabetic retinopathy, glaucoma, pathological myopia, and normal scans',
+      'Includes a Streamlit application for image uploads and predictions',
+      'Training notebooks cover CNN and Vision Transformer approaches',
     ],
-    liveUrl: 'https://orbit.example.com',
-    repoUrl: 'https://github.com/chetlasrijith/orbit',
-    preview: 'orbit',
-    metrics: [
-      { label: 'Fps', value: '120' },
-      { label: 'Shader lines', value: '900' },
-      { label: 'Deps', value: '1' },
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/1/1d/Retinal_detachment_in_Von_Hippel-Lindau_disease.jpg',
+    imageAlt: 'Public-domain retinal fundus photograph from the National Eye Institute',
+    imageCredit: 'Image: National Eye Institute, public domain',
+    liveUrl: null,
+    repoUrl: 'https://github.com/chetlasrijith/RetinaVision-AI',
+    preview: 'streams',
+  },
+  {
+    id: 'eco-bot',
+    index: '03',
+    name: 'EcoBot',
+    year: '2025',
+    status: 'Prototype',
+    summary: 'YOLOv8 detects underwater plastic and maps detections by location.',
+    description:
+      'EcoBot analyzes uploaded underwater images, reports detection confidence and plastic levels, and visualizes mapped locations. The app also supports downloading images annotated with detections.',
+    stack: ['React', 'TypeScript', 'Python', 'YOLOv8', 'Leaflet', 'OpenStreetMap'],
+    highlights: [
+      'Detects plastic objects in underwater images',
+      'Shows confidence scores and plastic-level summaries',
+      'Plots detection locations on a global map',
     ],
+    imageUrl: 'https://raw.githubusercontent.com/chetlasrijith/eco-bot/main/assets/3.png',
+    imageAlt: 'EcoBot screenshot showing underwater plastic detection results',
+    imageCredit: 'Project screenshot',
+    liveUrl: null,
+    repoUrl: 'https://github.com/chetlasrijith/eco-bot',
+    preview: 'queue',
+  },
+  {
+    id: 'event-sphere',
+    index: '04',
+    name: 'EventSphere',
+    year: '2026',
+    status: 'Prototype',
+    summary: 'A role-based platform for organizing events, registrations, and tickets.',
+    description:
+      'EventSphere is a MERN event-management platform with JWT authentication and separate attendee, organizer, and admin roles. It supports event management, ticket registration, image uploads, and an organizer dashboard.',
+    stack: ['React', 'Vite', 'Node.js', 'Express', 'MongoDB', 'JWT'],
+    highlights: [
+      'Role-based accounts for attendees, organizers, and admins',
+      'Event creation, registration, and ticket management',
+      'Protected API routes and organizer dashboard',
+    ],
+    imageUrl: 'https://raw.githubusercontent.com/chetlasrijith/EventSphere/main/frontend/public/images/banner.webp',
+    imageAlt: 'EventSphere event platform banner',
+    imageCredit: 'Project image',
+    liveUrl: null,
+    repoUrl: 'https://github.com/chetlasrijith/EventSphere',
+    status: 'Prototype',
+    preview: 'canvas',
+  },
+]
+
+export type SmallProject = {
+  name: string
+  note: string
+  repoUrl: string
+}
+
+export const smallProjects: SmallProject[] = [
+  {
+    name: 'Neural Networks From Scratch',
+    note: 'A NumPy-only MNIST classifier with forward propagation, backpropagation, ReLU, and softmax. The README reports about 85% development-set accuracy.',
+    repoUrl: 'https://github.com/chetlasrijith/NeuralNetworks_FromScratch',
+  },
+  {
+    name: 'Retail Price Analysis and Prediction',
+    note: 'Analyzes 118,482 retail prices from 2017 to 2025 with trend analysis, anomaly detection, regression, and price-level classification.',
+    repoUrl: 'https://github.com/chetlasrijith/Retail-Price-Analysis-and-Prediction',
+  },
+  {
+    name: 'Coding Contest Reminders',
+    note: 'A Python scheduler that sends WhatsApp reminders five minutes before coding contests listed in a CSV file.',
+    repoUrl: 'https://github.com/chetlasrijith/Coding-Contest-Reminders',
   },
 ]
 

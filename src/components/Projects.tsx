@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { projects, type Project } from '../data/portfolio'
+import { projects, smallProjects, type Project } from '../data/portfolio'
 import { SectionHeader } from './ui/SectionHeader'
 import { ProjectPreview } from './ProjectPreview'
 import { PillButton } from './ui/PillButton'
@@ -40,9 +40,14 @@ function Links({ p }: { p: Project }) {
           </svg>
         </a>
       ) : (
-        <span className={`${cls} cursor-not-allowed border-silver/12 text-stone`}>
-          Demo unavailable
-        </span>
+        <button
+          type="button"
+          className={`${cls} cursor-pointer bg-transparent text-stone`}
+          onClick={() => window.alert(`${p.name}: a live demo is not available yet.`)}
+          aria-label={`${p.name} live demo is unavailable`}
+        >
+          Live demo
+        </button>
       )}
 
       {p.repoUrl ? (
@@ -65,6 +70,8 @@ function Links({ p }: { p: Project }) {
 }
 
 function Card({ p }: { p: Project }) {
+  const [imageFailed, setImageFailed] = useState(false)
+
   return (
     <article className="group relative overflow-hidden rounded-xl bg-charcoal">
       {/* Hover elevation is a surface step, never a shadow. */}
@@ -148,8 +155,18 @@ function Card({ p }: { p: Project }) {
 
         {/* Preview stays visible; longer project details open on demand. */}
         <div className="relative order-first">
-          <div className="overflow-hidden rounded-xl transition-transform duration-700 ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-[1.012]">
-            <ProjectPreview variant={p.preview} name={p.name} />
+          <div className="overflow-hidden rounded-xl bg-graphite transition-transform duration-700 ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-[1.012]">
+            {imageFailed ? (
+              <ProjectPreview variant={p.preview} name={p.name} />
+            ) : (
+              <img
+                src={p.imageUrl}
+                alt={p.imageAlt}
+                loading="lazy"
+                onError={() => setImageFailed(true)}
+                className="aspect-[16/9] w-full object-cover"
+              />
+            )}
           </div>
 
           <div className="mt-3 flex flex-wrap items-center justify-between gap-2">
@@ -161,7 +178,7 @@ function Card({ p }: { p: Project }) {
             >
               {p.liveUrl ? p.liveUrl.replace(/^https?:\/\//, '') : (p.repoUrl ?? '').replace(/^https?:\/\//, '')}
             </a>
-            <span className="eyebrow text-stone">Preview</span>
+            <span className="eyebrow text-stone">{p.imageCredit ?? 'Project image'}</span>
           </div>
         </div>
       </div>
@@ -186,7 +203,7 @@ export function Projects() {
           index="02"
           label="Selected work"
           title="Some things I built because they were missing."
-          note="Every project below is open to inspection. Each has a live deployment you can break and a repository that explains why it works. No screenshots stand in for substance."
+          note="Each repository is open to inspection. Available demos are linked, and projects without a deployment are labeled."
         />
 
         {/* Filter pills, the system's only control geometry. */}
@@ -222,21 +239,16 @@ export function Projects() {
             <h3 className="max-w-[520px] text-[26px] leading-[1.2] tracking-[-0.3px] text-paper md:text-[30px]">
               Smaller things, same obsession.
             </h3>
-            <PillButton href="https://github.com" external>
+            <PillButton href="https://github.com/chetlasrijith" external>
               Everything on GitHub
             </PillButton>
           </div>
 
           <div className="mt-10 grid gap-x-12 md:grid-cols-2">
-            {[
-              { name: 'Sift VS Code', note: 'Extension that explains a stack trace inside the editor.', url: 'https://github.com' },
-              { name: 'ledger-cli', note: 'Tiny dependency-free ledger parser. 4KB.', url: 'https://github.com' },
-              { name: 'graphql-cost', note: 'Static analysis that fails a query over budget.', url: 'https://github.com' },
-              { name: 'dotfiles', note: 'Neovim, tmux, and a decade of bad shortcuts.', url: 'https://github.com' },
-            ].map((x) => (
+            {smallProjects.map((x) => (
               <a
                 key={x.name}
-                href={x.url}
+                href={x.repoUrl}
                 target="_blank"
                 rel="noreferrer noopener"
                 className="group flex items-baseline justify-between gap-6 border-b border-slate py-5 transition-colors duration-200 hover:border-silver/25"
