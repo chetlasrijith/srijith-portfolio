@@ -154,7 +154,6 @@ export const projects: Project[] = [
     imageCredit: 'Project image',
     liveUrl: null,
     repoUrl: 'https://github.com/chetlasrijith/EventSphere',
-    status: 'Prototype',
     preview: 'canvas',
   },
 ]
