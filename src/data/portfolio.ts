@@ -143,7 +143,7 @@ export const projects: Project[] = [
     summary: 'A role-based platform for organizing events, registrations, and tickets.',
     description:
       'EventSphere is a MERN event-management platform with JWT authentication and separate attendee, organizer, and admin roles. It supports event management, ticket registration, image uploads, and an organizer dashboard.',
-    stack: ['React', 'Vite', 'Node.js', 'Express', 'MongoDB', 'JWT'],
+    stack: ['React', 'Vite', 'Python', 'FastAPI', 'PostgreSQL', 'SQLAlchemy', 'JWT', 'Cloudinary', 'Docker'],
     highlights: [
       'Role-based accounts for attendees, organizers, and admins',
       'Event creation, registration, and ticket management',
