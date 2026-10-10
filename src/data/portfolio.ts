@@ -63,7 +63,6 @@ export type Project = {
   highlights: string[]
   imageUrl: string
   imageAlt: string
-  imageCredit?: string
   liveUrl: string | null
   repoUrl: string | null
   featured?: boolean
@@ -76,7 +75,7 @@ export const projects: Project[] = [
   {
     id: 'shadow-leak-detector',
     index: '01',
-    name: 'Shadow-AI Leak Detector',
+    name: 'ShadowTrace AI',
     year: '2026',
     status: 'Planned',
     summary: 'A security and privacy project currently in the planning stage.',
@@ -87,7 +86,7 @@ export const projects: Project[] = [
     imageUrl: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1400&q=85',
     imageAlt: 'Abstract cybersecurity scene with a glowing digital lock',
     liveUrl: null,
-    repoUrl: 'https://github.com/chetlasrijith/ShadowLeakDetector',
+    repoUrl: 'https://github.com/chetlasrijith/ShadowTrace-AI',
     preview: 'terminal',
   },
   {
@@ -107,7 +106,6 @@ export const projects: Project[] = [
     ],
     imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/1/1d/Retinal_detachment_in_Von_Hippel-Lindau_disease.jpg',
     imageAlt: 'Public-domain retinal fundus photograph from the National Eye Institute',
-    imageCredit: 'Image: National Eye Institute, public domain',
     liveUrl: null,
     repoUrl: 'https://github.com/chetlasrijith/RetinaVision-AI',
     preview: 'streams',
@@ -129,8 +127,7 @@ export const projects: Project[] = [
     ],
     imageUrl: 'https://raw.githubusercontent.com/chetlasrijith/eco-bot/main/assets/3.png',
     imageAlt: 'EcoBot screenshot showing underwater plastic detection results',
-    imageCredit: 'Project screenshot',
-    liveUrl: null,
+    liveUrl: 'https://eco-bot-bay.vercel.app',
     repoUrl: 'https://github.com/chetlasrijith/eco-bot',
     preview: 'queue',
   },
@@ -151,7 +148,6 @@ export const projects: Project[] = [
     ],
     imageUrl: 'https://raw.githubusercontent.com/chetlasrijith/EventSphere/main/frontend/public/images/banner.webp',
     imageAlt: 'EventSphere event platform banner',
-    imageCredit: 'Project image',
     liveUrl: 'https://eventsphere.chetlasrijith.workers.dev',
     repoUrl: 'https://github.com/chetlasrijith/EventSphere',
     preview: 'canvas',

@@ -79,7 +79,7 @@ function Card({ p }: { p: Project }) {
 
       {/* A 1px silver border draws itself in from the left on hover. */}
       <div
-        className="pointer-events-none absolute inset-0 rounded-xl border border-silver/25 transition-[clip-path] duration-500 ease-[cubic-bezier(.16,1,.3,1)]"
+        className="pointer-events-none absolute inset-0 rounded-xl border border-silver/25 transition-[clip-path] duration-500 ease-out-expo"
         style={{ clipPath: 'inset(0 100% 0 0)' }}
       />
 
@@ -87,7 +87,7 @@ function Card({ p }: { p: Project }) {
         {/* ── Left: the argument ── */}
         <div className="min-w-0">
           <div className="flex items-baseline gap-4">
-            <span className="font-mono text-[13px] tracking-[0.195px] text-stone">
+            <span className="font-mono text-caption tracking-[0.195px] text-stone">
               {p.index}
             </span>
             <span className="h-px flex-1 bg-silver/12" />
@@ -96,7 +96,7 @@ function Card({ p }: { p: Project }) {
             </span>
           </div>
 
-          <h3 className="mt-3 text-[21px] leading-[1.25] tracking-normal text-paper">
+          <h3 className="mt-3 text-subheading leading-tight tracking-normal text-paper">
             {p.name}
           </h3>
           <p className="mt-1 text-[14px] leading-[1.45] text-pearl">{p.summary}</p>
@@ -104,12 +104,12 @@ function Card({ p }: { p: Project }) {
           <details className="mt-3 border-t border-slate pt-3">
             <summary className="cursor-pointer text-[12px] text-ash">More details</summary>
             <div className="pt-3">
-              <p className="text-[13px] leading-[1.5] text-ash">{p.description}</p>
+              <p className="text-caption leading-normal text-ash">{p.description}</p>
 
               {p.highlights.length ? (
                 <ul className="mt-3 space-y-2">
                   {p.highlights.map((h) => (
-                    <li key={h} className="flex gap-2 text-[12px] leading-[1.5] text-pearl">
+                    <li key={h} className="flex gap-2 text-[12px] leading-normal text-pearl">
                       <span className="mt-2 h-px w-2.5 shrink-0 bg-slate" />
                       {h}
                     </li>
@@ -121,7 +121,7 @@ function Card({ p }: { p: Project }) {
                 <dl className="mt-4 grid grid-cols-3 gap-2 border-t border-slate pt-3">
                   {p.metrics.map((m) => (
                     <div key={m.label}>
-                      <dt className="text-[16px] text-paper tabular-nums">{m.value}</dt>
+                      <dt className="text-body text-paper tabular-nums">{m.value}</dt>
                       <dd className="eyebrow mt-1 text-stone">{m.label}</dd>
                     </div>
                   ))}
@@ -155,7 +155,7 @@ function Card({ p }: { p: Project }) {
 
         {/* Preview stays visible; longer project details open on demand. */}
         <div className="relative order-first">
-          <div className="overflow-hidden rounded-xl bg-graphite transition-transform duration-700 ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-[1.012]">
+          <div className="overflow-hidden rounded-xl bg-graphite transition-transform duration-700 ease-out-expo group-hover:scale-[1.012]">
             {imageFailed ? (
               <ProjectPreview variant={p.preview} name={p.name} />
             ) : (
@@ -164,21 +164,20 @@ function Card({ p }: { p: Project }) {
                 alt={p.imageAlt}
                 loading="lazy"
                 onError={() => setImageFailed(true)}
-                className="aspect-[16/9] w-full object-cover"
+                className="aspect-video w-full object-cover"
               />
             )}
           </div>
 
-          <div className="mt-3 flex flex-wrap items-center justify-between gap-2">
+          <div className="mt-3 min-w-0">
             <a
               href={p.liveUrl ?? p.repoUrl ?? '#'}
               target="_blank"
               rel="noreferrer noopener"
-              className="min-w-0 truncate font-mono text-[11px] text-stone underline decoration-silver/20 underline-offset-4 transition-colors hover:text-pearl hover:decoration-paper/60"
+              className="block min-w-0 truncate font-mono text-[11px] text-stone underline decoration-silver/20 underline-offset-4 transition-colors hover:text-pearl hover:decoration-paper/60"
             >
               {p.liveUrl ? p.liveUrl.replace(/^https?:\/\//, '') : (p.repoUrl ?? '').replace(/^https?:\/\//, '')}
             </a>
-            <span className="eyebrow text-stone">{p.imageCredit ?? 'Project image'}</span>
           </div>
         </div>
       </div>
@@ -213,7 +212,7 @@ export function Projects() {
               key={t}
               type="button"
               onClick={() => setFilter(t)}
-              className={`shrink-0 rounded-full border px-4 py-2 text-[13px] tracking-[0.015em] transition-colors duration-200 ${
+              className={`shrink-0 rounded-full border px-4 py-2 text-caption tracking-[0.015em] transition-colors duration-200 ${
                 filter === t
                   ? 'border-silver/30 bg-graphite text-paper'
                   : 'border-silver/12 text-ash hover:border-silver/30 hover:text-paper'
@@ -236,7 +235,7 @@ export function Projects() {
         {/* Secondary proof wall, compact and without previews. */}
         <div className="mt-20 border-t border-slate pt-12">
           <div className="flex flex-wrap items-end justify-between gap-6">
-            <h3 className="max-w-[520px] text-[26px] leading-[1.2] tracking-[-0.3px] text-paper md:text-[30px]">
+            <h3 className="max-w-130 text-[26px] leading-[1.2] tracking-[-0.3px] text-paper md:text-heading">
               Smaller things, same obsession.
             </h3>
             <PillButton href="https://github.com/chetlasrijith" external>
