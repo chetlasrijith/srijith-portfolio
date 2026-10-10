@@ -22,7 +22,7 @@ function Arc({ rating, delay }: { rating: Rating; delay: number }) {
 
   return (
     <div ref={ref} className="flex flex-col items-center">
-      <div className="relative h-[132px] w-[132px]">
+      <div className="relative h-33 w-33">
         <svg viewBox="0 0 120 120" className="h-full w-full -rotate-90">
           <circle cx="60" cy="60" r={R} fill="none" stroke="#1e1e1e" strokeWidth="3" />
           <circle
@@ -43,7 +43,7 @@ function Arc({ rating, delay }: { rating: Rating; delay: number }) {
         </svg>
         {/* The head of the arc gets the one dot the palette allows here. */}
         <span
-          className="absolute h-[5px] w-[5px] rounded-full bg-electric-indigo transition-opacity duration-500"
+          className="absolute h-1.25 w-1.25 rounded-full bg-electric-indigo transition-opacity duration-500"
           style={{
             left: `${(hx / 120) * 100}%`,
             top: `${(hy / 120) * 100}%`,
@@ -53,7 +53,7 @@ function Arc({ rating, delay }: { rating: Rating; delay: number }) {
           }}
         />
         <div className="absolute inset-0 flex flex-col items-center justify-center">
-          <span className="text-[24px] leading-none tracking-[-0.24px] text-paper tabular-nums">
+          <span className="text-heading-sm leading-none tracking-[-0.24px] text-paper tabular-nums">
             {rating.rating.toLocaleString('en-US')}
           </span>
         </div>

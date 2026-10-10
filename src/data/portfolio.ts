@@ -81,11 +81,11 @@ export const projects: Project[] = [
     summary: 'A security and privacy project currently in the planning stage.',
     description:
       'This project has not been implemented yet. Its detection scope, interface, and technical approach are still being defined.',
-    stack: [],
+    stack: ['Python', 'FastAPI', 'Uvicorn', 'Ollama', 'PyYAML', 'Requests', 'pytest', 'Chrome Extension (Manifest V3)', 'JavaScript', 'HTML', 'CSS'],
     highlights: [],
     imageUrl: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1400&q=85',
     imageAlt: 'Abstract cybersecurity scene with a glowing digital lock',
-    liveUrl: null,
+    liveUrl: 'https://shadow-two-jade.vercel.app/',
     repoUrl: 'https://github.com/chetlasrijith/ShadowTrace-AI',
     preview: 'terminal',
   },

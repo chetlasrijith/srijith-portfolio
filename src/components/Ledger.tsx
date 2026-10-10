@@ -91,7 +91,7 @@ export function Ledger() {
             {live.leetcode ? (
               <DifficultyLadder tiers={tiers} />
             ) : (
-              <p className="text-[13px] text-stone">LeetCode problem counts are unavailable.</p>
+              <p className="text-caption text-stone">LeetCode problem counts are unavailable.</p>
             )}
           </Panel>
 
