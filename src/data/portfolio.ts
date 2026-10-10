@@ -106,7 +106,7 @@ export const projects: Project[] = [
     ],
     imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/1/1d/Retinal_detachment_in_Von_Hippel-Lindau_disease.jpg',
     imageAlt: 'Public-domain retinal fundus photograph from the National Eye Institute',
-    liveUrl: null,
+    liveUrl: 'https://retina-vision-ai.vercel.app/',
     repoUrl: 'https://github.com/chetlasrijith/RetinaVision-AI',
     preview: 'streams',
   },
@@ -318,4 +318,9 @@ export const codeChefProfile = {
   url: 'https://www.codechef.com/users/thechetla',
   rating: 1519,
   checkedAt: 'Oct 5, 2026',
+}
+
+export const leetcodeFallback = {
+  rating: 1903,
+  globalRanking: 39440,
 }

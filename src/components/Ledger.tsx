@@ -5,7 +5,7 @@ import { DifficultyLadder } from './stats/DifficultyLadder'
 import { RatingArcs } from './stats/RatingArcs'
 import { ContributionGrid } from './stats/ContributionGrid'
 import { useLiveCodingStats } from '../hooks/useLiveCodingStats'
-import { codeChefProfile } from '../data/portfolio'
+import { codeChefProfile, leetcodeFallback } from '../data/portfolio'
 
 function Panel({
   label,
@@ -39,18 +39,16 @@ export function Ledger() {
       ]
     : []
   const ratings = [
-    ...(live.contest
-      ? [
-        {
-          platform: 'LeetCode',
-          handle: '@thechetla',
-          url: 'https://leetcode.com/u/thechetla/',
-          rating: Math.round(live.contest.rating),
-          max: 2200,
-          percentile: `Top ${live.contest.topPercentage.toFixed(2)}% · #${live.contest.globalRanking.toLocaleString('en-US')}`,
-        },
-      ]
-      : []),
+    {
+      platform: 'LeetCode',
+      handle: '@thechetla',
+      url: 'https://leetcode.com/u/thechetla/',
+      rating: Math.round(live.contest?.rating ?? leetcodeFallback.rating),
+      max: 2200,
+      percentile: live.contest
+        ? `Top ${live.contest.topPercentage.toFixed(2)}% · #${live.contest.globalRanking.toLocaleString('en-US')}`
+        : `#${leetcodeFallback.globalRanking.toLocaleString('en-US')} global rank`,
+    },
     {
       platform: 'CodeChef',
       handle: `@${codeChefProfile.handle}`,
@@ -75,10 +73,14 @@ export function Ledger() {
           <Stat size="md" value={live.leetcode?.totalSolved ?? null} label="LeetCode solved" />
           <Stat
             size="md"
-            value={live.contest ? Math.round(live.contest.rating) : null}
+            value={Math.round(live.contest?.rating ?? leetcodeFallback.rating)}
             label="LeetCode rating"
           />
-          <Stat size="md" value={live.contest?.globalRanking ?? null} label="LeetCode global rank" />
+          <Stat
+            size="md"
+            value={live.contest?.globalRanking ?? leetcodeFallback.globalRanking}
+            label="LeetCode global rank"
+          />
           <Stat size="md" value={codeChefProfile.rating} label="CodeChef rating" />
           <Stat size="md" value={live.publicCommits} label="Public commits " />
           <Stat size="md" value={live.github?.total ?? null} label="GitHub contributions" />
