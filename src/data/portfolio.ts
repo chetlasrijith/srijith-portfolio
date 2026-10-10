@@ -76,7 +76,7 @@ export const projects: Project[] = [
   {
     id: 'shadow-leak-detector',
     index: '01',
-    name: 'ShadowLeakDetector',
+    name: 'Shadow-AI Leak Detector',
     year: '2026',
     status: 'Planned',
     summary: 'A security and privacy project currently in the planning stage.',
@@ -152,7 +152,7 @@ export const projects: Project[] = [
     imageUrl: 'https://raw.githubusercontent.com/chetlasrijith/EventSphere/main/frontend/public/images/banner.webp',
     imageAlt: 'EventSphere event platform banner',
     imageCredit: 'Project image',
-    liveUrl: null,
+    liveUrl: 'https://eventsphere.chetlasrijith.workers.dev',
     repoUrl: 'https://github.com/chetlasrijith/EventSphere',
     preview: 'canvas',
   },
